@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Treasure Depot local warehouse deals and daily inventory.">
+  <title>treasuredepotva.com | Local Warehouse Deals</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+  <div class="topbar"><span>● WAREHOUSE INVENTORY</span><span>Updated daily · In-store purchase only</span></div>
+  <header class="nav shell">
+    <a class="brand" href="#top"><img src="https://treasure-depot-inventory.eloise-d.chatgpt.site/treasure-depot-icon.png" alt="Treasure Depot logo"><b>treasuredepotva.com</b></a>
+    <nav><a href="#inventory">Inventory</a><a href="#visit">Visit us</a></nav>
+    <div class="actions"><button id="favorites">♥ My favorites <span>0</span></button><select id="language" aria-label="Language / 语言 / Idioma"><option value="en">EN</option><option value="zh">中文</option><option value="es">ES</option></select></div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">LOCAL DEALS · REAL INVENTORY</p>
+        <h1>Find it online.<br>Pick it up today.</h1>
+        <p class="lead">New arrivals, open-box deals, and warehouse prices. Browse before you drive—then inspect and buy in person.</p>
+        <div class="hero-links"><a class="button primary" href="#inventory">Browse inventory ↓</a><a class="button ghost" href="https://www.google.com/maps/search/?api=1&query=warehouse" target="_blank" rel="noreferrer">Get directions ↗</a></div>
+        <div class="checks"><span>✓ Inspect before buying</span><span>✓ Delivery temporarily unavailable</span><span>✓ Friendly local team</span></div>
+      </div>
+      <div class="hero-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85" alt="Warehouse furniture"><div class="load-card"><b>THIS WEEK</b><strong>New loads arriving daily</strong><span>Follow us for first look →</span></div></div>
+    </section>
+
+    <section id="inventory" class="inventory shell">
+      <p class="eyebrow">WAREHOUSE INVENTORY</p>
+      <div class="section-heading"><div><h2>What’s on the floor</h2><p id="itemCount">6 items available</p></div><label class="search">⌕ <input id="search" placeholder="Search products…" aria-label="Search products"></label></div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="productGrid"></div>
+      <p class="empty" id="empty" hidden>No matching products. Try another search or category.</p>
+    </section>
+
+    <section id="visit" class="visit">
+      <div class="shell visit-grid"><div><p class="eyebrow">VISIT THE WAREHOUSE</p><h2>See it. Test it.<br>Take it home.</h2><p>Inventory changes quickly. Call before driving for limited-stock items.</p></div><div class="details"><div><b>Warehouse address</b><span>1234 Market Street<br>Your City, ST 00000</span></div><div><b>Business hours</b><span>Mon–Sat 9:00 AM–6:00 PM<br>Sun 10:00 AM–4:00 PM</span></div><div><b>Phone</b><span>(000) 000-0000</span></div><div class="detail-actions"><a class="button primary" href="https://www.google.com/maps/search/?api=1&query=warehouse" target="_blank" rel="noreferrer">Get directions ↗</a><a class="button ghost" href="tel:+10000000000">Call warehouse</a></div></div></div>
+    </section>
+
+    <section class="social shell"><div><p class="eyebrow">SEE TODAY’S ARRIVALS</p><h2>Follow the next truckload.</h2><p>Follow for new truckloads, walk-through videos, and flash deals.</p></div><div><a href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok <span>@yourwarehouse ↗</span></a><a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook <span>/yourwarehouse ↗</span></a></div></section>
+  </main>
+
+  <footer class="shell"><a class="brand" href="#top"><img src="https://treasure-depot-inventory.eloise-d.chatgpt.site/treasure-depot-icon.png" alt="Treasure Depot logo"><b>treasuredepotva.com</b></a><p>© 2026 treasuredepotva.com · Prices and availability subject to change.</p></footer>
+
+  <dialog id="productDialog"><button class="close" aria-label="Close">×</button><img id="dialogImage" alt=""><div><p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><strong id="dialogPrice"></strong><p>Visit the warehouse to inspect this item and confirm availability before purchasing.</p></div></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
