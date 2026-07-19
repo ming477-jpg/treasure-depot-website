@@ -9,43 +9,44 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top">
-  <div class="topbar"><span>● WAREHOUSE INVENTORY</span><span>Updated daily · In-store purchase only</span></div>
+  <div class="topbar"><span data-i18n="topInventory">● WAREHOUSE INVENTORY</span><span data-i18n="topNotice">Updated daily · In-store purchase only</span></div>
   <header class="nav shell">
     <a class="brand" href="#top"><img src="https://treasure-depot-inventory.eloise-d.chatgpt.site/treasure-depot-icon.png" alt="Treasure Depot logo"><b>treasuredepotva.com</b></a>
-    <nav><a href="#inventory">Inventory</a><a href="#visit">Visit us</a></nav>
-    <div class="actions"><button id="favorites">♥ My favorites <span>0</span></button><select id="language" aria-label="Language / 语言 / Idioma"><option value="en">EN</option><option value="zh">中文</option><option value="es">ES</option></select></div>
+    <nav><a href="#inventory" data-i18n="navInventory">Inventory</a><a href="#visit" data-i18n="navVisit">Visit us</a></nav>
+    <div class="actions"><button id="favorites"><span data-i18n="favorites">♥ My favorites</span> <span class="favorite-count">0</span></button><select id="language" aria-label="Language / 语言 / Idioma"><option value="en">EN</option><option value="zh">中文</option><option value="es">ES</option></select></div>
   </header>
 
   <main>
     <section class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow">LOCAL DEALS · REAL INVENTORY</p>
-        <h1>Find it online.<br>Pick it up today.</h1>
-        <p class="lead">New arrivals, open-box deals, and warehouse prices. Browse before you drive—then inspect and buy in person.</p>
-        <div class="hero-links"><a class="button primary" href="#inventory">Browse inventory ↓</a><a class="button ghost" href="https://www.google.com/maps/search/?api=1&query=warehouse" target="_blank" rel="noreferrer">Get directions ↗</a></div>
-        <div class="checks"><span>✓ Inspect before buying</span><span>✓ Delivery temporarily unavailable</span><span>✓ Friendly local team</span></div>
+        <p class="eyebrow" data-i18n="heroEyebrow">LOCAL DEALS · REAL INVENTORY</p>
+        <h1 data-i18n-html="heroTitle">Find it online.<br>Pick it up today.</h1>
+        <p class="lead" data-i18n="heroLead">New arrivals, open-box deals, and warehouse prices. Browse before you drive—then inspect and buy in person.</p>
+        <div class="hero-links"><a class="button primary" href="#inventory" data-i18n="browse">Browse inventory ↓</a><a class="button ghost" href="https://www.google.com/maps/search/?api=1&query=warehouse" target="_blank" rel="noreferrer" data-i18n="directions">Get directions ↗</a></div>
+        <div class="checks"><span data-i18n="checkInspect">✓ Inspect before buying</span><span data-i18n="checkDelivery">✓ Delivery temporarily unavailable</span><span data-i18n="checkTeam">✓ Friendly local team</span></div>
       </div>
-      <div class="hero-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85" alt="Warehouse furniture"><div class="load-card"><b>THIS WEEK</b><strong>New loads arriving daily</strong><span>Follow us for first look →</span></div></div>
+      <div class="hero-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85" alt="Warehouse furniture"><div class="load-card"><b data-i18n="thisWeek">THIS WEEK</b><strong data-i18n="newLoads">New loads arriving daily</strong><span data-i18n="followFirst">Follow us for first look →</span></div></div>
     </section>
 
     <section id="inventory" class="inventory shell">
-      <p class="eyebrow">WAREHOUSE INVENTORY</p>
-      <div class="section-heading"><div><h2>What’s on the floor</h2><p id="itemCount">6 items available</p></div><label class="search">⌕ <input id="search" placeholder="Search products…" aria-label="Search products"></label></div>
+      <p class="eyebrow" data-i18n="inventoryEyebrow">WAREHOUSE INVENTORY</p>
+      <div class="section-heading"><div><h2 data-i18n="floorTitle">What’s on the floor</h2><p id="itemCount">6 items available</p></div><label class="search">⌕ <input id="search" placeholder="Search products…" aria-label="Search products"></label></div>
       <div class="filters" id="filters"></div>
       <div class="grid" id="productGrid"></div>
-      <p class="empty" id="empty" hidden>No matching products. Try another search or category.</p>
+      <p class="empty" id="empty" hidden data-i18n="empty">No matching products. Try another search or category.</p>
     </section>
 
     <section id="visit" class="visit">
-      <div class="shell visit-grid"><div><p class="eyebrow">VISIT THE WAREHOUSE</p><h2>See it. Test it.<br>Take it home.</h2><p>Inventory changes quickly. Call before driving for limited-stock items.</p></div><div class="details"><div><b>Warehouse address</b><span>1234 Market Street<br>Your City, ST 00000</span></div><div><b>Business hours</b><span>Mon–Sat 9:00 AM–6:00 PM<br>Sun 10:00 AM–4:00 PM</span></div><div><b>Phone</b><span>(000) 000-0000</span></div><div class="detail-actions"><a class="button primary" href="https://www.google.com/maps/search/?api=1&query=warehouse" target="_blank" rel="noreferrer">Get directions ↗</a><a class="button ghost" href="tel:+10000000000">Call warehouse</a></div></div></div>
+      <div class="shell visit-grid"><div><p class="eyebrow" data-i18n="visitEyebrow">VISIT THE WAREHOUSE</p><h2 data-i18n-html="visitTitle">See it. Test it.<br>Take it home.</h2><p data-i18n="visitLead">Inventory changes quickly. Call before driving for limited-stock items.</p></div><div class="details"><div><b data-i18n="addressLabel">Warehouse address</b><span>1234 Market Street<br>Your City, ST 00000</span></div><div><b data-i18n="hoursLabel">Business hours</b><span data-i18n-html="hoursValue">Mon–Sat 9:00 AM–6:00 PM<br>Sun 10:00 AM–4:00 PM</span></div><div><b data-i18n="phoneLabel">Phone</b><span>(000) 000-0000</span></div><div class="detail-actions"><a class="button primary" href="https://www.google.com/maps/search/?api=1&query=warehouse" target="_blank" rel="noreferrer" data-i18n="directions">Get directions ↗</a><a class="button ghost" href="tel:+10000000000" data-i18n="callWarehouse">Call warehouse</a></div></div></div>
     </section>
 
-    <section class="social shell"><div><p class="eyebrow">SEE TODAY’S ARRIVALS</p><h2>Follow the next truckload.</h2><p>Follow for new truckloads, walk-through videos, and flash deals.</p></div><div><a href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok <span>@yourwarehouse ↗</span></a><a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook <span>/yourwarehouse ↗</span></a></div></section>
+    <section class="social shell"><div><p class="eyebrow" data-i18n="socialEyebrow">SEE TODAY’S ARRIVALS</p><h2 data-i18n="socialTitle">Follow the next truckload.</h2><p data-i18n="socialLead">Follow for new truckloads, walk-through videos, and flash deals.</p></div><div><a href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok <span>@yourwarehouse ↗</span></a><a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook <span>/yourwarehouse ↗</span></a></div></section>
   </main>
 
-  <footer class="shell"><a class="brand" href="#top"><img src="https://treasure-depot-inventory.eloise-d.chatgpt.site/treasure-depot-icon.png" alt="Treasure Depot logo"><b>treasuredepotva.com</b></a><p>© 2026 treasuredepotva.com · Prices and availability subject to change.</p></footer>
+  <footer class="shell"><a class="brand" href="#top"><img src="https://treasure-depot-inventory.eloise-d.chatgpt.site/treasure-depot-icon.png" alt="Treasure Depot logo"><b>treasuredepotva.com</b></a><p data-i18n="footer">© 2026 treasuredepotva.com · Prices and availability subject to change.</p></footer>
 
-  <dialog id="productDialog"><button class="close" aria-label="Close">×</button><img id="dialogImage" alt=""><div><p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><strong id="dialogPrice"></strong><p>Visit the warehouse to inspect this item and confirm availability before purchasing.</p></div></dialog>
+  <dialog id="productDialog"><button class="close" aria-label="Close">×</button><img id="dialogImage" alt=""><div><p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><strong id="dialogPrice"></strong><p data-i18n="dialogNotice">Visit the warehouse to inspect this item and confirm availability before purchasing.</p></div></dialog>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
