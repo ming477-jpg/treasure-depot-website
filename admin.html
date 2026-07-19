@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Treasure Depot 管理后台</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header><a href="/">← 返回网站</a><div><b>Treasure Depot</b><span>商品管理后台</span></div><button id="logout" hidden>退出登录</button></header>
+  <main>
+    <section id="login" class="panel login">
+      <h1>管理员登录</h1><p>请输入管理员邮箱，我们会发送安全登录链接。</p>
+      <form id="loginForm"><label>管理员邮箱<input id="email" type="email" value="treasuredepotva@gmail.com" required></label><button>发送登录链接</button></form>
+      <p id="loginMessage" class="message"></p>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="title-row"><div><h1>商品库存</h1><p>新增、修改商品后，网站会自动更新。</p></div><button id="newProduct">＋ 新增商品</button></div>
+      <div class="stats"><div><b id="totalCount">0</b><span>全部商品</span></div><div><b id="publishedCount">0</b><span>网站展示</span></div><div><b id="lowCount">0</b><span>低库存/售罄</span></div></div>
+      <div id="productList" class="product-list"></div>
+    </section>
+  </main>
+  <dialog id="editor"><form id="productForm"><div class="dialog-head"><h2 id="formTitle">新增商品</h2><button type="button" id="closeEditor">×</button></div><input id="productId" type="hidden">
+    <div class="form-grid">
+      <label>SKU（商品编号）<input id="sku" required></label><label>分类<input id="category" list="categories" required></label>
+      <datalist id="categories"><option>Furniture</option><option>Appliances</option><option>Auto parts</option><option>Industrial</option><option>General merchandise</option><option>Fitness</option><option>Pet supplies</option><option>Kitchen</option><option>Outdoor</option></datalist>
+      <label class="wide">英文名称<input id="nameEn" required></label><label class="wide">中文名称<input id="nameZh"></label><label class="wide">西班牙文名称<input id="nameEs"></label>
+      <label class="wide">英文介绍<textarea id="descriptionEn"></textarea></label><label class="wide">中文介绍<textarea id="descriptionZh"></textarea></label><label class="wide">西班牙文介绍<textarea id="descriptionEs"></textarea></label>
+      <label>售价（美元）<input id="price" type="number" min="0" step="0.01" required></label><label>原价（可选）<input id="comparePrice" type="number" min="0" step="0.01"></label>
+      <label>库存数量<input id="stock" type="number" min="0" required></label><label>库存状态<select id="status"><option value="in_stock">有现货</option><option value="low_stock">库存很少</option><option value="sold_out">已售罄</option></select></label>
+      <label class="wide">商品图片<input id="image" type="file" accept="image/jpeg,image/png,image/webp"><small>也可以粘贴图片网址：</small><input id="imageUrl" type="url"></label>
+      <label class="check"><input id="popular" type="checkbox"> 热门商品</label><label class="check"><input id="isNew" type="checkbox"> 新到商品</label><label class="check"><input id="published" type="checkbox" checked> 在网站展示</label>
+    </div><p id="formMessage" class="message"></p><div class="form-actions"><button type="button" class="secondary" id="cancelEditor">取消</button><button type="submit">保存商品</button></div>
+  </form></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script>
+</body></html>
