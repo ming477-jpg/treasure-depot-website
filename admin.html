@@ -14,9 +14,18 @@
       <p id="loginMessage" class="message"></p>
     </section>
     <section id="dashboard" hidden>
-      <div class="title-row"><div><h1>商品库存</h1><p>新增、修改商品后，网站会自动更新。</p></div><button id="newProduct">＋ 新增商品</button></div>
-      <div class="stats"><div><b id="totalCount">0</b><span>全部商品</span></div><div><b id="publishedCount">0</b><span>网站展示</span></div><div><b id="lowCount">0</b><span>低库存/售罄</span></div></div>
-      <div id="productList" class="product-list"></div>
+      <nav class="admin-tabs"><button class="active" data-tab="inventoryPanel">商品库存</button><button data-tab="pickupPanel">提货保留 <span id="pickupBadge">0</span></button></nav>
+      <section id="inventoryPanel" class="admin-panel">
+        <div class="title-row"><div><h1>商品库存</h1><p>新增、修改商品后，网站会自动更新。</p></div><button id="newProduct">＋ 新增商品</button></div>
+        <div class="stats"><div><b id="totalCount">0</b><span>全部商品</span></div><div><b id="publishedCount">0</b><span>网站展示</span></div><div><b id="lowCount">0</b><span>低库存/售罄</span></div></div>
+        <div id="productList" class="product-list"></div>
+      </section>
+      <section id="pickupPanel" class="admin-panel" hidden>
+        <div class="title-row"><div><h1>已付款提货保留</h1><p>付款后最多保留 7 天；到期商品须由员工确认处理。</p></div><button id="newPickup">＋ 创建保留单</button></div>
+        <div class="stats pickup-stats"><div><b id="waitingCount">0</b><span>等待提货</span></div><div><b id="todayCount">0</b><span>今天提货</span></div><div><b id="expiredCount">0</b><span>已过期</span></div></div>
+        <div class="pickup-filters"><button class="active" data-pickup-filter="active">当前保留</button><button data-pickup-filter="all">全部记录</button></div>
+        <div id="pickupList" class="pickup-list"></div>
+      </section>
     </section>
   </main>
   <dialog id="editor"><form id="productForm"><div class="dialog-head"><h2 id="formTitle">新增商品</h2><button type="button" id="closeEditor">×</button></div><input id="productId" type="hidden">
@@ -30,6 +39,21 @@
       <label class="wide">商品图片<input id="image" type="file" accept="image/jpeg,image/png,image/webp"><small>也可以粘贴图片网址：</small><input id="imageUrl" type="url"></label>
       <label class="check"><input id="popular" type="checkbox"> 热门商品</label><label class="check"><input id="isNew" type="checkbox"> 新到商品</label><label class="check"><input id="published" type="checkbox" checked> 在网站展示</label>
     </div><p id="formMessage" class="message"></p><div class="form-actions"><button type="button" class="secondary" id="cancelEditor">取消</button><button type="submit">保存商品</button></div>
+  </form></dialog>
+  <dialog id="pickupEditor"><form id="pickupForm"><div class="dialog-head"><h2>创建已付款保留单</h2><button type="button" id="closePickup">×</button></div>
+    <div class="form-grid">
+      <label>客人姓名<input id="customerName" required></label>
+      <label>电话号码<input id="customerPhone" type="tel" required></label>
+      <label class="wide">已购买商品<select id="pickupProduct" required></select></label>
+      <label>数量<input id="pickupQuantity" type="number" min="1" value="1" required></label>
+      <label>已付款金额<input id="amountPaid" type="number" min="0" step="0.01" required></label>
+      <label>付款时间<input id="paidAt" type="datetime-local" required></label>
+      <label>预计提货时间<input id="pickupAt" type="datetime-local" required></label>
+      <label class="wide">仓库位置<input id="warehouseLocation" placeholder="例如：A区－第3排－12号"></label>
+      <label class="wide">备注<textarea id="pickupNotes" placeholder="颜色、包装、顾客要求等"></textarea></label>
+    </div>
+    <div class="hold-notice">保存后系统会立即扣减可售库存，并自动计算付款后第 7 天为保留截止日期。</div>
+    <p id="pickupMessage" class="message"></p><div class="form-actions"><button type="button" class="secondary" id="cancelPickup">取消</button><button type="submit">创建并打印标签</button></div>
   </form></dialog>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script>
 </body></html>
