@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Treasure Depot 管理后台</title>
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="ai-admin.css">
 </head>
 <body>
   <header><a href="/">← 返回网站</a><div><b>Treasure Depot</b><span>商品管理后台</span></div><button id="logout" hidden>退出登录</button></header>
@@ -29,6 +29,17 @@
     </section>
   </main>
   <dialog id="editor"><form id="productForm"><div class="dialog-head"><h2 id="formTitle">新增商品</h2><button type="button" id="closeEditor">×</button></div><input id="productId" type="hidden">
+    <section class="ai-assistant">
+      <div class="ai-copy"><span class="ai-badge">AI 辅助 · 可选</span><h3>拍照后自动填写商品资料</h3><p>手动上传和填写方式保持不变。选择照片后，AI 可以协助生成三语名称、分类、描述、SKU 和参考原价；所有内容都可修改。</p></div>
+      <div class="ai-photo-row">
+        <label>商品图片<input id="image" type="file" accept="image/jpeg,image/png,image/webp" capture="environment"><small>支持手机拍照或从相册选择。</small></label>
+        <img id="aiPreview" alt="商品照片预览" hidden>
+      </div>
+      <label>也可以粘贴图片网址<input id="imageUrl" type="url" placeholder="https://..."></label>
+      <div class="ai-actions"><button type="button" id="aiAnalyze">✦ AI 识别并填写</button><span id="aiMessage" class="message" aria-live="polite"></span></div>
+      <div id="aiResult" class="ai-result" hidden></div>
+      <div id="aiSimilar" class="ai-similar" hidden></div>
+    </section>
     <div class="form-grid">
       <label>SKU（商品编号）<input id="sku" required></label><label>分类<input id="category" list="categories" required></label>
       <datalist id="categories"><option>Furniture</option><option>Appliances</option><option>Auto parts</option><option>Industrial</option><option>General merchandise</option><option>Fitness</option><option>Pet supplies</option><option>Kitchen</option><option>Outdoor</option></datalist>
@@ -36,7 +47,6 @@
       <label class="wide">英文介绍<textarea id="descriptionEn"></textarea></label><label class="wide">中文介绍<textarea id="descriptionZh"></textarea></label><label class="wide">西班牙文介绍<textarea id="descriptionEs"></textarea></label>
       <label>售价（美元）<input id="price" type="number" min="0" step="0.01" required></label><label>原价（可选）<input id="comparePrice" type="number" min="0" step="0.01"></label>
       <label>库存数量<input id="stock" type="number" min="0" required></label><label>库存状态<select id="status"><option value="in_stock">有现货</option><option value="low_stock">库存很少</option><option value="sold_out">已售罄</option></select></label>
-      <label class="wide">商品图片<input id="image" type="file" accept="image/jpeg,image/png,image/webp"><small>也可以粘贴图片网址：</small><input id="imageUrl" type="url"></label>
       <label class="check"><input id="popular" type="checkbox"> 热门商品</label><label class="check"><input id="isNew" type="checkbox"> 新到商品</label><label class="check"><input id="published" type="checkbox" checked> 在网站展示</label>
     </div><p id="formMessage" class="message"></p><div class="form-actions"><button type="button" class="secondary" id="cancelEditor">取消</button><button type="submit">保存商品</button></div>
   </form></dialog>
